@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Post} from '../../model/Post';
 import {PostService} from '../../service/post.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -9,10 +10,24 @@ import {PostService} from '../../service/post.service';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-  post: Post[];
-  constructor(private postService: PostService) { }
+  post: Post[] = [];
+  postForm: FormGroup = new FormGroup({
+    title: new FormControl('')
+  });
+
+  constructor(private postService: PostService) {
+  }
 
   ngOnInit() {
+    const title = this.postForm.value.title;
+    if (title === '') {
+      this.getAll();
+    } else {
+      this.search();
+    }
+  }
+
+  getAll() {
     this.postService.getAll().subscribe(result => {
       // @ts-ignore
       this.post = result.content;
@@ -23,4 +38,14 @@ export class PostListComponent implements OnInit {
     });
   }
 
+  search() {
+    console.log('----------------');
+    // @ts-ignore
+    const title = this.postForm.value.title;
+    // @ts-ignore
+    this.postService.getByTitle(title).subscribe(result => {
+      this.post = result;
+      console.log(result);
+    });
+  }
 }

@@ -1,4 +1,7 @@
-
+<form [formGroup]="postForm" (ngSubmit)="search()">
+  <input type="text" formControlName='title'>
+  <button>Tìm</button>
+</form>
 <table border="1px">
   <tr>
     <td>STT</td>
