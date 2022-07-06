@@ -1,0 +1,20 @@
+
+<table border="1px">
+  <tr>
+    <td>STT</td>
+    <td>Tiêu đề</td>
+    <td>Nội dung</td>
+    <td>Ngày tạo</td>
+    <td>Số lượt thích</td>
+  </tr>
+  <tr *ngFor="let post of post; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{post.title}}</td>
+    <td>{{post.content}}</td>
+    <td>{{post.createAt}}</td>
+    <td>{{post.likes}}</td>
+    <td><a [routerLink]="['edit',post.id]">Edit</a></td>
+    <td><a [routerLink]="['delete',post.id]">Delete</a></td>
+  </tr>
+</table>
+

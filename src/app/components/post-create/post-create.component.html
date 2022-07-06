@@ -1,0 +1,23 @@
+<h1>Tạo danh bài viết</h1>
+<form [formGroup]="postForm" (ngSubmit)="submit()">
+  <table>
+    <tr>
+      <td>Tiêu đề</td>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td>Nội dung</td>
+      <td><input type="text" formControlName="content"></td>
+    </tr>
+    <tr>
+      <td>Lượt thích</td>
+      <td><input type="text" formControlName="likes"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button>Tạo mới</button>
+      </td>
+    </tr>
+  </table>
+</form>

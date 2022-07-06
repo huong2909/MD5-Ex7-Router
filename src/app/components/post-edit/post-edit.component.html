@@ -1,0 +1,21 @@
+<h1>Cập nhật thông tin bài viết</h1>
+<form [formGroup]="postForm" (ngSubmit)="update(id)">
+  <table>
+    <tr>
+      <td>Tiêu đề</td>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td>Nội dung:</td>
+      <td><input type="text" formControlName="content"></td>
+    </tr>
+    <tr>
+      <td>Lượt thích</td>
+      <td><input type="text" formControlName="likes"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button>Cập nhật</button></td>
+    </tr>
+  </table>
+</form>

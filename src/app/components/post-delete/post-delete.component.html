@@ -1,0 +1,21 @@
+<h1>Xoá danh mục sản phẩm</h1>
+<form [formGroup]="postForm" (ngSubmit)="delete(id)">
+  <table>
+    <tr>
+      <td>Tiêu đề</td>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td>Nội dung:</td>
+      <td><input type="text" formControlName="content"></td>
+    </tr>
+    <tr>
+      <td>Lượt thích</td>
+      <td><input type="text" formControlName="likes"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button>Xoá</button></td>
+    </tr>
+  </table>
+</form>
